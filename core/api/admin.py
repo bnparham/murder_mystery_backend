@@ -8,3 +8,7 @@ class PersonAdmin(admin.ModelAdmin):
 @admin.register(PhoneCalls)
 class PhoneCallsAdmin(admin.ModelAdmin):
     list_display = ['caller', 'reciver', 'date', 'duration']
+
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ['name']

@@ -23,6 +23,10 @@ class PhoneCalls(models.Model):
 class Location(models.Model):
     name = models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name = 'Location'
+        verbose_name_plural = "Locations"
+
 class Street(models.Model):
     location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
