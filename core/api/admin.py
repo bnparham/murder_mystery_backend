@@ -40,7 +40,7 @@ class SecurityLogAdmin(admin.ModelAdmin):
 
 @admin.register(CrimeSceneReport)
 class CrimeSceneReportAdmin(admin.ModelAdmin):
-    list_display = ['steert_id']
+    list_display = ['street_id']
 
 
 @admin.register(Item)
