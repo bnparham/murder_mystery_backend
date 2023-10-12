@@ -11,6 +11,9 @@ class Person(models.Model):
         verbose_name = 'person'
         verbose_name_plural = 'persons'
 
+    def __str__(self):
+        return self.name
+
 
 class PhoneCalls(models.Model):
     caller = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='outgoing_calls')
@@ -22,6 +25,9 @@ class PhoneCalls(models.Model):
         verbose_name = 'phone call'
         verbose_name_plural = 'phone calls'
 
+    def __str__(self):
+        return f'{self.caller}-{self.reciver}'
+
 
 class Location(models.Model):
     name = models.CharField(max_length=200)
@@ -29,6 +35,9 @@ class Location(models.Model):
     class Meta:
         verbose_name = 'Location'
         verbose_name_plural = "Locations"
+
+    def __str__(self):
+        return self.name
 
 
 class Street(models.Model):
@@ -39,6 +48,9 @@ class Street(models.Model):
         verbose_name = 'Street'
         verbose_name_plural = 'Streets'
 
+    def __str__(self):
+        return f'{self.location_id} - {self.name}'
+
 
 class BankAccount(models.Model):
     account_number = models.IntegerField()
@@ -48,6 +60,9 @@ class BankAccount(models.Model):
     class Meta:
         verbose_name = 'Bank Account'
         verbose_name_plural = 'Bank Accounts'
+
+    def __str__(self):
+        return f'{self.account_number} - {self.person_id}'
 
 
 class AtmTransaction(models.Model):
@@ -60,6 +75,9 @@ class AtmTransaction(models.Model):
     class Meta:
         verbose_name = 'Atm Transaction'
         verbose_name_plural = 'Atm Transactions'
+
+    def __str__(self):
+        return f'{self.account_number} - {self.atm_location}'
 
 
 class SecurityLog(models.Model):
@@ -74,6 +92,9 @@ class SecurityLog(models.Model):
         verbose_name = 'Security Log'
         verbose_name_plural = 'Security Logs'
 
+    def __str__(self):
+        return f'{self.license_plate} - {self.street_id}'
+
 
 class CrimeSceneReport(models.Model):
     street_id = models.ForeignKey(Street, on_delete=models.CASCADE)
@@ -84,6 +105,9 @@ class CrimeSceneReport(models.Model):
         verbose_name = 'Crime Scene Report'
         verbose_name_plural = 'Crime Scene Reports'
 
+    def __str__(self):
+        return f'{self.street_id} - {self.date}'
+
 
 class Item(models.Model):
     name = models.CharField(max_length=200)
@@ -92,6 +116,9 @@ class Item(models.Model):
     class Meta:
         verbose_name = 'Item'
         verbose_name_plural = 'Items'
+
+    def __str__(self):
+        return self.name
 
 
 class Clue(models.Model):
@@ -102,6 +129,9 @@ class Clue(models.Model):
         verbose_name = 'Clue'
         verbose_name_plural = 'Clues'
 
+    def __str__(self):
+        return f'{self.crime_id}-{self.item_id}'
+
 
 class Airports(models.Model):
     full_name = models.CharField(max_length=200)
@@ -110,6 +140,9 @@ class Airports(models.Model):
     class Meta:
         verbose_name = 'Airport'
         verbose_name_plural = 'Airports'
+
+    def __str__(self):
+        return self.full_name
 
 
 class Flights(models.Model):
@@ -123,6 +156,9 @@ class Flights(models.Model):
         verbose_name = 'Flight'
         verbose_name_plural = 'Flights'
 
+    def __str__(self):
+        return f'{self.origin_airport_id} - {self.destination_airport_id} -{self.date}'
+
 
 class Passengers(models.Model):
     flight_id = models.ForeignKey(Flights, on_delete=models.CASCADE)
@@ -132,6 +168,9 @@ class Passengers(models.Model):
     class Meta:
         verbose_name = 'Passenger'
         verbose_name_plural = 'Passengers'
+
+    def __str__(self):
+        return f'{self.flight_id} - {self.person_id}'
 
 
 class Interviews(models.Model):
@@ -144,6 +183,9 @@ class Interviews(models.Model):
         verbose_name = 'Interview'
         verbose_name_plural = 'Interviews'
 
+    def __str__(self):
+        return f'{self.name} - {self.location_id}'
+
 
 class MessageBox(models.Model):
     person_id = models.ForeignKey(Person, on_delete=models.CASCADE)
@@ -154,6 +196,9 @@ class MessageBox(models.Model):
         verbose_name = 'Message Box'
         verbose_name_plural = 'Message Boxes'
 
+    def __str__(self):
+        return f'{self.person_id} - {self.body}'
+
 
 class PlayerReply(models.Model):
     message_id = models.ForeignKey(MessageBox, on_delete=models.CASCADE)
@@ -163,6 +208,9 @@ class PlayerReply(models.Model):
         verbose_name = 'Player Reply'
         verbose_name_plural = 'Player Replies'
 
+    def __str__(self):
+        return self.message_id
+
 
 class NpcReply(models.Model):
     PlayerReply_id = models.ForeignKey(PlayerReply, on_delete=models.CASCADE)
@@ -171,3 +219,6 @@ class NpcReply(models.Model):
     class Meta:
         verbose_name = 'Npc Reply'
         verbose_name_plural = 'npc Replies'
+
+    def __str__(self):
+        return self.PlayerReply_id
