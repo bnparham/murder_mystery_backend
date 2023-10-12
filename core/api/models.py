@@ -94,13 +94,13 @@ class Item(models.Model):
         verbose_name_plural = 'Items'
 
 
-class Evidence(models.Model):
+class Clue(models.Model):
     crime_id = models.ForeignKey(CrimeSceneReport, on_delete=models.CASCADE)
     item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = 'Evidence'
-        verbose_name_plural = 'Evidences'
+        verbose_name = 'Clue'
+        verbose_name_plural = 'Clues'
 
 
 class Airports(models.Model):

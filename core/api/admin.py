@@ -48,8 +48,8 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
-@admin.register(Evidence)
-class EvidenceAdmin(admin.ModelAdmin):
+@admin.register(Clue)
+class ClueAdmin(admin.ModelAdmin):
     list_display = ['crime_id', 'item_id']
 
 
