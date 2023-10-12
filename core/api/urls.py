@@ -13,6 +13,7 @@ urlpatterns = [
     path('item/', ItemApi.as_view(), name="item"),
     path('evidence/', EvidenceApi.as_view(), name="evidence"),
     path('airports/', AirportsApi.as_view(), name="airports"),
+    path('flights/', FlightsApi.as_view(), name="flights"),
     path('passengers/', PassengersApi.as_view(), name="passengers"),
     path('interviews/', InterviewsApi.as_view(), name="interviews"),
     path('messageBox/', MessageBoxApi.as_view(), name="messageBox"),
