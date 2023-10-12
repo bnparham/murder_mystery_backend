@@ -155,7 +155,7 @@ class MessageBox(models.Model):
         verbose_name_plural = 'Message Boxes'
 
 
-class player_reply(models.Model):
+class PlayerReply(models.Model):
     message_id = models.ForeignKey(MessageBox, on_delete=models.CASCADE)
     body = models.CharField(max_length=500)
 
@@ -164,8 +164,8 @@ class player_reply(models.Model):
         verbose_name_plural = 'Player Replies'
 
 
-class npc_reply(models.Model):
-    player_reply_id = models.ForeignKey(player_reply, on_delete=models.CASCADE)
+class NpcReply(models.Model):
+    PlayerReply_id = models.ForeignKey(PlayerReply, on_delete=models.CASCADE)
     body = models.CharField(max_length=500)
 
     class Meta:

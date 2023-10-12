@@ -78,10 +78,10 @@ class MessageBoxSerializer(serializers.ModelSerializer):
 
 class PlayerReplySerializer(serializers.ModelSerializer):
     class Meta:
-        model = player_reply
+        model = PlayerReply
         fields = '__all__'
 
 class NpcReplySerializer(serializers.ModelSerializer):
     class Meta:
-        model = npc_reply
+        model = NpcReply
         fields = '__all__'

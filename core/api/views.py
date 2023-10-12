@@ -65,9 +65,9 @@ class MessageBoxApi(generics.ListAPIView):
 
 class PlayerReplyApi(generics.ListAPIView):
     serializer_class = PlayerReplySerializer
-    queryset = player_reply.objects.all()
+    queryset = PlayerReply.objects.all()
 
 class NpcReplyApi(generics.ListAPIView):
     serializer_class = NpcReplySerializer
-    queryset = npc_reply.objects.all()
+    queryset = NpcReply.objects.all()
 

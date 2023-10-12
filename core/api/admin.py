@@ -78,11 +78,11 @@ class MessageBoxAdmin(admin.ModelAdmin):
     list_display = ['person_id', 'body', 'date']
 
 
-@admin.register(player_reply)
-class player_replyAdmin(admin.ModelAdmin):
+@admin.register(PlayerReply)
+class PlayerReplyAdmin(admin.ModelAdmin):
     list_display = ['message_id', 'body']
 
 
-@admin.register(npc_reply)
-class npc_replyAdmin(admin.ModelAdmin):
-    list_display = ['player_reply_id', 'body']
+@admin.register(NpcReply)
+class NpcReplyAdmin(admin.ModelAdmin):
+    list_display = ['PlayerReply_id', 'body']
