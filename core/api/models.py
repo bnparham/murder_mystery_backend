@@ -105,7 +105,7 @@ class CrimeSceneReport(models.Model):
         verbose_name_plural = 'Crime Scene Reports'
 
     def __str__(self):
-        return f'{self.street_id} - {self.date}'
+        return f'{self.location_id} - {self.date}'
 
 
 class Item(models.Model):
