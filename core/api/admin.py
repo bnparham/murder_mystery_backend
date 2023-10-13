@@ -35,12 +35,12 @@ class AtmTransactionAdmin(admin.ModelAdmin):
 
 @admin.register(SecurityLog)
 class SecurityLogAdmin(admin.ModelAdmin):
-    list_display = ['license_plate', 'street_id']
+    list_display = ['license_plate', 'street_id', 'activity', 'date', 'time']
 
 
 @admin.register(CrimeSceneReport)
 class CrimeSceneReportAdmin(admin.ModelAdmin):
-    list_display = ['street_id']
+    list_display = ['location_id', 'description', 'date']
 
 
 @admin.register(Item)
@@ -70,7 +70,7 @@ class PassengersAdmin(admin.ModelAdmin):
 
 @admin.register(Interviews)
 class InterviewsAdmin(admin.ModelAdmin):
-    list_display = ['name', 'location_id', ]
+    list_display = ['name', 'street_id', 'transcript', 'date']
 
 
 @admin.register(MessageBox)

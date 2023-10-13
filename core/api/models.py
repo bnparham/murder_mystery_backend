@@ -83,7 +83,6 @@ class AtmTransaction(models.Model):
 class SecurityLog(models.Model):
     license_plate = models.ForeignKey(Person, on_delete=models.CASCADE)
     street_id = models.ForeignKey(Street, on_delete=models.CASCADE)
-    location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
     activity = models.CharField(max_length=200)
     date = models.DateField()
     time = models.TimeField()
@@ -97,7 +96,7 @@ class SecurityLog(models.Model):
 
 
 class CrimeSceneReport(models.Model):
-    street_id = models.ForeignKey(Street, on_delete=models.CASCADE)
+    location_id = models.ForeignKey(Location, on_delete=models.CASCADE, default=None)
     description = models.CharField(max_length=200)
     date = models.DateField()
 
@@ -176,7 +175,7 @@ class Passengers(models.Model):
 class Interviews(models.Model):
     name = models.CharField(max_length=200)
     transcript = models.CharField(max_length=500)
-    location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
+    street_id = models.ForeignKey(Street, on_delete=models.CASCADE, default=None)
     date = models.DateField()
 
     class Meta:
