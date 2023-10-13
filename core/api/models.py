@@ -183,7 +183,7 @@ class Interviews(models.Model):
         verbose_name_plural = 'Interviews'
 
     def __str__(self):
-        return f'{self.name} - {self.location_id}'
+        return f'{self.name} - {self.street_id}'
 
 
 class MessageBox(models.Model):
