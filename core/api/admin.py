@@ -20,7 +20,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 @admin.register(Street)
 class StreetAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
+    list_display = ['id', 'name', 'location_id']
 
 
 @admin.register(BankAccount)
