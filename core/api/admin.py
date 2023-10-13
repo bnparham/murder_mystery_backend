@@ -45,7 +45,7 @@ class CrimeSceneReportAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
+    list_display = ['id', 'name', 'description']
 
 
 @admin.register(Clue)
