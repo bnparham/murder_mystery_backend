@@ -111,6 +111,7 @@ class CrimeSceneReport(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='items', default='items/no_photo.jpg')
 
     class Meta:
         verbose_name = 'Item'
