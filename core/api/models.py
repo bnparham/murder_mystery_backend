@@ -110,7 +110,6 @@ class CrimeSceneReport(models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=500)
     image = models.ImageField(upload_to='items', default='items/no_photo.jpg')
 
     class Meta:
@@ -124,7 +123,8 @@ class Item(models.Model):
 class Clue(models.Model):
     crime_id = models.ForeignKey(CrimeSceneReport, on_delete=models.CASCADE)
     item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
-
+    description = models.CharField(max_length=500)
+    
     class Meta:
         verbose_name = 'Clue'
         verbose_name_plural = 'Clues'
