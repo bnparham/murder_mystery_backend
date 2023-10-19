@@ -40,6 +40,7 @@ class CrimeSceneReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = CrimeSceneReport
         fields = '__all__'
+        depth = 1
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:

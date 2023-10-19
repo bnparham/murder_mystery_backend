@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, filters
 from .serializers import *
 from .models import *
 
@@ -33,8 +33,10 @@ class SecurityLogApi(generics.ListAPIView):
 
 class CrimeSceneReportApi(generics.ListAPIView):
     serializer_class = CrimeSceneReportSerializer
-    queryset = CrimeSceneReport.objects.all()
-
+    queryset = CrimeSceneReport.objects.all().select_related('location_id')
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('description','date',)
+    
 class ItemApi(generics.ListAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
