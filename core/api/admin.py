@@ -57,7 +57,7 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(Clue)
 class ClueAdmin(admin.ModelAdmin):
-    list_display = ['id', 'crime_id', 'item_id', 'description']
+    list_display = ['id', 'crime_id', 'item_id', 'short_desc', 'description']
 
 
 @admin.register(Airports)
