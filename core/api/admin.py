@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-
+from django.utils.html import mark_safe
 
 # Register your models here.
 @admin.register(Person)
@@ -45,7 +45,14 @@ class CrimeSceneReportAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
+    list_display = ['id', 'name', 'display_image',]
+    
+    def display_image(self, obj):
+        # Replace 'image' with the name of your ImageField or FileField
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" style="max-height: 200px; max-width: 200px;" />') 
+        else:
+            return 'No Image'
 
 
 @admin.register(Clue)

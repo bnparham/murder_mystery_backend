@@ -51,6 +51,7 @@ class ClueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clue
         fields = '__all__'
+        depth = 1
 
 class AirportsSerializer(serializers.ModelSerializer):
     class Meta:

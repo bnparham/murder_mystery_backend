@@ -41,7 +41,7 @@ class ItemApi(generics.ListAPIView):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
 
-class EvidenceApi(generics.ListAPIView):
+class ClueApi(generics.ListAPIView):
     serializer_class = ClueSerializer
     queryset = Clue.objects.all()
 
