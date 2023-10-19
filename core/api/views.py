@@ -43,7 +43,10 @@ class ItemApi(generics.ListAPIView):
 
 class ClueApi(generics.ListAPIView):
     serializer_class = ClueSerializer
-    queryset = Clue.objects.all()
+    queryset = Clue.objects.all().select_related('crime_id')
+    filter_backends = (filters.SearchFilter,)
+    # search field by foreignKey should use __ after key name and then select attribue of model
+    search_fields = ('crime_id__id',)
 
 class AirportsApi(generics.ListAPIView):
     serializer_class = AirportsSerializer
