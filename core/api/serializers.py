@@ -35,7 +35,7 @@ class SecurityLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = SecurityLog
         fields = '__all__'
-
+        depth = 2
 class CrimeSceneReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = CrimeSceneReport

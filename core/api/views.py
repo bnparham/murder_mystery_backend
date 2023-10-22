@@ -29,13 +29,15 @@ class AtmTransactionApi(generics.ListAPIView):
 
 class SecurityLogApi(generics.ListAPIView):
     serializer_class = SecurityLogSerializer
-    queryset = SecurityLog.objects.all()
+    queryset = SecurityLog.objects.all().select_related('license_plate', 'street_id')
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('date','activity',)
 
 class CrimeSceneReportApi(generics.ListAPIView):
     serializer_class = CrimeSceneReportSerializer
     queryset = CrimeSceneReport.objects.all().select_related('location_id')
     filter_backends = (filters.SearchFilter, )
-    search_fields = ('description','date',)
+    search_fields = ('description','date','street_id',)
     
 class ItemApi(generics.ListAPIView):
     serializer_class = ItemSerializer
