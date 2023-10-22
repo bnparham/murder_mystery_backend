@@ -29,9 +29,9 @@ class AtmTransactionApi(generics.ListAPIView):
 
 class SecurityLogApi(generics.ListAPIView):
     serializer_class = SecurityLogSerializer
-    queryset = SecurityLog.objects.all().select_related('license_plate', 'street_id')
+    queryset = SecurityLog.objects.all().select_related('license_plate')
     filter_backends = (filters.SearchFilter, )
-    search_fields = ('date','activity',)
+    search_fields = ('date','street_id__name',)
 
 class CrimeSceneReportApi(generics.ListAPIView):
     serializer_class = CrimeSceneReportSerializer
