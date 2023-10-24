@@ -10,6 +10,7 @@ class PhoneCallsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PhoneCalls
         fields = '__all__'
+        depth = 1
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
