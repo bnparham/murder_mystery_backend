@@ -147,11 +147,16 @@ class Airports(models.Model):
 
 
 class Flights(models.Model):
+    Choises=(
+        ('local','پرواز داخلی'),
+        ('international','پرواز خارجی')
+    )
     origin_airport_id = models.ForeignKey(Airports, on_delete=models.CASCADE, related_name='departing_flights')
     destination_airport_id = models.ForeignKey(Airports, on_delete=models.CASCADE, related_name='arriving_flights')
     date = models.DateField()
     time = models.TimeField()
-    type = models.CharField(max_length=200)
+    type = models.CharField(choices=Choises,max_length=200)
+
 
     class Meta:
         verbose_name = 'Flight'
