@@ -35,7 +35,13 @@ class AtmTransactionAdmin(admin.ModelAdmin):
 
 @admin.register(SecurityLog)
 class SecurityLogAdmin(admin.ModelAdmin):
-    list_display = ['id', 'license_plate', 'street_id', 'activity', 'date', 'time']
+    list_display = ['id', 'licensePlate', 'street', 'activity', 'date', 'time']
+    
+    def licensePlate(self, obj):
+        return obj.license_plate.license_plate
+    
+    def street(self, obj):
+        return obj.street_id.name
 
 
 @admin.register(CrimeSceneReport)
