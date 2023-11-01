@@ -73,7 +73,7 @@ class AirportsAdmin(admin.ModelAdmin):
 
 @admin.register(Flights)
 class FlightsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'origin_airport_id', 'destination_airport_id', 'date', 'time']
+    list_display = ['id', 'origin_airport_id', 'destination_airport_id', 'date', 'time', 'type']
 
 
 @admin.register(Passengers)
