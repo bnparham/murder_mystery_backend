@@ -26,6 +26,7 @@ class BankAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = BankAccount
         fields = '__all__'
+        depth = 1
 
 class AtmTransactionSerializer(serializers.ModelSerializer):
     class Meta:
