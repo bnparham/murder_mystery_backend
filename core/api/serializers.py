@@ -32,6 +32,7 @@ class AtmTransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AtmTransaction
         fields = '__all__'
+        depth = 1
 
 class SecurityLogSerializer(serializers.ModelSerializer):
     class Meta:
