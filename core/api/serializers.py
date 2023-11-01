@@ -21,6 +21,7 @@ class StreetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Street
         fields = '__all__'
+        depth = 1
 
 class BankAccountSerializer(serializers.ModelSerializer):
     class Meta:
