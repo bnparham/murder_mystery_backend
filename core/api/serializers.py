@@ -65,6 +65,7 @@ class FlightsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flights
         fields = '__all__'
+        depth = 1
 
 class PassengersSerializer(serializers.ModelSerializer):
     class Meta:
