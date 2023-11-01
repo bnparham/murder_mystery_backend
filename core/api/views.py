@@ -31,7 +31,7 @@ class SecurityLogApi(generics.ListAPIView):
     serializer_class = SecurityLogSerializer
     queryset = SecurityLog.objects.all().select_related('license_plate')
     filter_backends = (filters.SearchFilter, )
-    search_fields = ('date','street_id__name',)
+    search_fields = ('street_id__name',)
 
 class CrimeSceneReportApi(generics.ListAPIView):
     serializer_class = CrimeSceneReportSerializer
