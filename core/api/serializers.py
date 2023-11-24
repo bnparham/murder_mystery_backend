@@ -72,6 +72,7 @@ class PassengersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passengers
         fields = '__all__'
+        depth = 1
 
 class InterviewsSerializer(serializers.ModelSerializer):
     class Meta:
