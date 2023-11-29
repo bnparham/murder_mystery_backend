@@ -78,6 +78,7 @@ class InterviewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interviews
         fields = '__all__'
+        depth = 1
 
 class MessageBoxSerializer(serializers.ModelSerializer):
     class Meta:
