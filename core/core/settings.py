@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # --- apps ---
     'api.apps.ApiConfig',
+    'tictoc.apps.TictocConfig',
 ]
 
 MIDDLEWARE = [
