@@ -15,13 +15,14 @@ def startNewGame_method():
 
 def PlayerMove(board,action,letter):
     board = ast.literal_eval(board)
-    action = action if letter == player(board) else minimax(board)
+    action = tuple(action) if letter == player(board) else minimax(board)
+    res = result(board=board,action=action)
     return(
         {
-        'board' : f'{result(board=board,action=action)}',
+        'board' : f'{res}',
         'player' : player(board),
         'action' : f"{action}",
-        'winner' : winner(board),
-        'terminal' : terminal(board),
+        'winner' : winner(res),
+        'terminal' : terminal(res),
         }
     )
