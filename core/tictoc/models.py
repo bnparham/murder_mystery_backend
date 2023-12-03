@@ -7,4 +7,3 @@ class tictocModel(models.Model):
     board = models.CharField(max_length=100, blank=True, null=True)
     winner = models.CharField(max_length=100, blank=True, null=True)
     terminal = models.BooleanField(max_length=100, blank=True, null=True)
-    move = models.CharField(max_length=100, blank=True, null=True)
