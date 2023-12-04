@@ -66,31 +66,27 @@ class MoveAPI(CreateAPIView):
                 aiMove = playerMove
 
             request.data.update(aiMove)
-        # first ai should play, then when player insert data, ai result will appear too
+        # first ai should play (as X), then when player insert data, ai result will appear too
         else :
-            # check we are in init game :
+            # check we are in init game status :
             if last_move == initial_state() :
                 aiMove = PlayerMove(
                 board=last_move.board,
                 action=request.data.get('action'),
                 letter=request.data.get('letter'),
-            ) 
+            )
             else :
+                # now we can play and after that ai playing too
                 playerMove = PlayerMove(
                 board=last_move.board,
                 action=request.data.get('action'),
                 letter=request.data.get('letter'),
                 )
-                # check actions
-                if len(actions(extractBoard(last_move.board))) > 1 :
-                    aiMove = PlayerMove(
-                        board=playerMove['board'],
-                        action=playerMove['action'],
-                        letter=request.data.get('letter'),
-                    )
-                else :
-                    # we are in last move and there is one empty slot.
-                    aiMove = playerMove
+                aiMove = PlayerMove(
+                    board=playerMove['board'],
+                    action=playerMove['action'],
+                    letter=request.data.get('letter'),
+                )
 
             request.data.update(aiMove)
 
