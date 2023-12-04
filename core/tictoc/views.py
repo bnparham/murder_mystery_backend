@@ -102,3 +102,12 @@ class LastSessionAPI(ListAPIView):
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
+    
+    
+class DeleteAllDataView(APIView):
+    def delete(self, request, *args, **kwargs):
+        try:
+            tictocModel.objects.all().delete()
+            return Response({"message": "All data deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

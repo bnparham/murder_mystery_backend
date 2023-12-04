@@ -7,4 +7,5 @@ urlpatterns = [
     path('startnewgame', StartNewGameAPI.as_view(), name='startNewGame'),
     path('moveapi', MoveAPI.as_view(), name='playermove'),
     path('lastsessionapi', LastSessionAPI.as_view(), name='lastSession'),
+    path('deleteall', DeleteAllDataView.as_view(), name='deleteAll')
 ]
