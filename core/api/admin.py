@@ -6,7 +6,7 @@ from django.utils.html import mark_safe, format_html
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'phone_number', 'passport_number', 'license_plate']
-
+    list_per_page = 20
 
 @admin.register(PhoneCalls)
 class PhoneCallsAdmin(admin.ModelAdmin):
