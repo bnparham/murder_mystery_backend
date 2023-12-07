@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from django.utils.html import mark_safe
+from django.utils.html import mark_safe, format_html
 
 # Register your models here.
 @admin.register(Person)
@@ -78,7 +78,21 @@ class FlightsAdmin(admin.ModelAdmin):
 
 @admin.register(Passengers)
 class PassengersAdmin(admin.ModelAdmin):
-    list_display = ['id', 'flight_id', 'person_id', 'seat']
+    list_display = ['id', 'flight_name','flight_number', 'person_id', 'seat']
+    list_filter = ['flight_id__id']
+
+    @admin.display
+    def flight_number(self, obj):
+        return obj.flight_id.id
+    
+    @admin.display
+    def flight_name(self,obj):
+        url = f'/admin/api/flights/{obj.flight_id.id}/change/'
+        return format_html(
+            "<a href={url}>{name}</a>",
+            url=f'{url}',
+            name=obj.flight_id
+        )
 
 
 @admin.register(Interviews)
