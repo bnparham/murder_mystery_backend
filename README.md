@@ -85,7 +85,7 @@ Start a new Tic-Tac-Toe game (send empty json body)
 Initial State Response:
 ```json
 {
-    "id": ?,
+    "id": "?",
     "player": "X",
     "action": null,
     "board": "000000000",
